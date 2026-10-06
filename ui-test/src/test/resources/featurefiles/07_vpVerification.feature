@@ -145,7 +145,7 @@ Scenario: Verify VP verification same device flow
     And User confirms inji-web wallet with configured passcode
     #And User click on submit button
     And User click on trust verifier
-    And Then Verify error message is displayed
+    Then Verify error message is displayed
 	
 	@smoke @verifyingVpVerification @dependsOnVP
     Scenario: Verify multiple VC OVP verification using inji-web wallet 
@@ -181,7 +181,7 @@ Scenario: Verify VP verification same device flow
     And User selects configured inji-web wallet in verifier
     And User clicks on Proceed button
     #And User is redirected to inji-web wallet presentation page
-    #And User click on trust verifier
+    And User click on trust verifier
     #And User selects the credential for verification
     #And User select the second credential for verification
     And User clicks consent and share button
@@ -213,9 +213,9 @@ Scenario: Verify VP verification same device flow
     And Verify Click on open wallet button
     And User selects configured inji-web wallet in verifier
     And User clicks on Proceed button
-    #And User click on trust verifier
+    And User click on trust verifier
     #And User selects the credential for verification
     #And User clicks consent and share button
     #And User clicks consent and share card button
     #And VP result for partial sharing
-    And Then Verify error message is displayed
+    Then Verify error message is displayed
