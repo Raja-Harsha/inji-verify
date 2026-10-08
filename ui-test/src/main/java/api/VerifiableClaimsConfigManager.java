@@ -48,14 +48,7 @@ public final class VerifiableClaimsConfigManager {
         }
         try {
             JsonNode config = loadConfigJson();
-            try {
-                applyConfig(config);
-            } catch (RuntimeException remoteOrPrimaryFailure) {
-                // Remote config may return 200 with a different/empty schema; fall back to bundled config.
-                LOGGER.warn("Primary config.json could not be used (" + remoteOrPrimaryFailure.getMessage()
-                        + "). Falling back to classpath resource.");
-                applyConfig(readJsonFromClasspath(FALLBACK_CONFIG_RESOURCE));
-            }
+            applyConfig(config);
             initialized = true;
             LOGGER.info("Loaded " + claimDisplayNames.size() + " verifiable claim(s) from config.json"
                     + (essentialCredentialName != null ? "; essential=" + essentialCredentialName : ""));

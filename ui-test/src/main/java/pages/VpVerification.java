@@ -1,6 +1,5 @@
 package pages;
 
-import org.codehaus.plexus.util.Expand;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
@@ -407,7 +406,8 @@ public class VpVerification extends BasePage {
 		}
 		// Custom checkbox UI keeps the input hidden; selected state is shown via checkmark.
 		return !driver.findElements(By.xpath("//li[@id=" + toXPathLiteral(credentialName + "-ItemBox")
-				+ "]//span[normalize-space()='✓' and contains(@class,'block')]")).isEmpty();				
+				+ "]//span[normalize-space()='✓' and contains(@class,'block')] | //label[@for="
+				+ toXPathLiteral(credentialName) + "]//span[normalize-space()='✓' and contains(@class,'block')]")).isEmpty();
 	}
 
 	public void waitForOpenWalletButton() {
